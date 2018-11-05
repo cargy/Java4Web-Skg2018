@@ -1,5 +1,8 @@
 package org.regeneration.bigstoreproject;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Flower implements  Item {
 
     public String getName() {
