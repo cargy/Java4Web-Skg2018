@@ -1,15 +1,6 @@
 package org.regeneration.bigstoreproject;
 
-public class Store {
+public interface Store {
 
-    private final Item item;
-
-    public Store(Item item) {
-        this.item = item;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
+    Item getItem();
 }
