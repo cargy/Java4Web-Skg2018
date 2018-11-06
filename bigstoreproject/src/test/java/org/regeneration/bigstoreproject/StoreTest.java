@@ -13,7 +13,7 @@ public class StoreTest {
 
     @Before
     public void setup() {
-        context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        context = new ClassPathXmlApplicationContext(Constant.APP_CONFIG_LOCATION);
 
     }
 
