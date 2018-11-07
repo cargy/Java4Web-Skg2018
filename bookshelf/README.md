@@ -1,6 +1,6 @@
 # The bookshelf project
 
-The "bookshelf project" purpose is you to Spring persistence concepts.
+The "bookshelf project" purpose is to introduce you to Spring persistence concepts.
 
 ## Configuration
 
