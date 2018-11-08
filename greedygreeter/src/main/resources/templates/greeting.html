@@ -6,15 +6,12 @@
 </head>
 <body>
 <p th:text="'Hello, ' + ${name} + '!'" />
-<p th:text="'Geia, ' + ${name} + '!'" />
-<p th:text="'Guten Tag, ' + ${name} + '!'" />
-<p th:text="'Bonjour, ' + ${name} + '!'" />
 
 <form method="get" th:action="@{''}" th:object="${form}">
-Who to greet?
+    Who to greet?
     <input class="form-control"
-       type="text"
-       th:value="${name}" id="name" name="name" />
+           type="text"
+           th:value="${name}" id="name" name="name" />
     <input type="submit" value="Greedy Greet!">
 </form>
 </body>
