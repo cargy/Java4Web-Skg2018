@@ -50,7 +50,7 @@ public class WebAppConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/books").authenticated()
+                .antMatchers("/books/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
@@ -59,7 +59,8 @@ public class WebAppConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic()
                 .and()
-                .logout();
+                .logout()
+                .logoutSuccessUrl("/index.html");
     }
 
     @Bean

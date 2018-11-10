@@ -1,11 +1,11 @@
 function logout() {
-    localStorage.clear();
-    window.location.replace(ROOT_PATH + "/index.html")
+    sessionStorage.removeItem(SESSION_STORAGE_LOGIN_TOKEN_NAME);
+    window.location.replace(ROOT_PATH + "/logout")
 }
 
 function populateDataTable(books) {
     jQuery.each(books, function(i,book) {
-        $("#books").append("<tr><td>" + book.id + "</td><td>" + book.title + "</td></tr>");
+        $("#books").append("<tr id='bookRow" + book.id + "'><td>" + book.id + "</td><td>" + book.title + "</td></tr>");
      });
 
      $("#books tr").click(function() {
@@ -37,13 +37,17 @@ $(document).ready(function() {
 
     $("#deleteButton").on('click', function(event){
         event.preventDefault();
+        let bookId = $("input[name=id]").val();
         $.ajax({
-            url: ROOT_PATH + "/books/" + $("input[name=id]").val(),
+            url: ROOT_PATH + "/books/" + bookId,
             type : "DELETE",
             dataType : 'json',
             contentType: 'application/json',
                 success : function(result) {
-                    console.log("book deleted!");
+                    $("#bookRow" + bookId).remove();
+                    $("input[name=id]").val("");
+                    $("input[name=title]").val("");
+                    $("input[name=isbn]").val("");
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
