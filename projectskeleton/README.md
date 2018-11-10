@@ -32,7 +32,16 @@ Login as `user` with password `user`. The user's home page will list some books.
 ## API Security
 
 The project uses Spring Security in order to protect the API (`/books/**`). The login button will `POST` 
-the username and password (as `multipart/form-data`) to the `/login` servlet provided by Spring Security. After succesfull authenticfation
+the username and password (as `multipart/form-data`) to the `/login` servlet provided by Spring Security. 
+
+```
+curl --request POST \
+  --url http://localhost:8080/login \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data 'username=user&password=user'
+```
+
+After succesfull authenticfation
 all subsequent API calls *from the same origin* will be authorized. Spring Security also provides a `/logout` 
 servlet that expires the session.
 
