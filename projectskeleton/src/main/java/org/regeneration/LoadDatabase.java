@@ -18,7 +18,7 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(BookRepository bookRepository) {
         return args -> {
             logger.info("Preloading " + bookRepository.save(new Book("The Grapes of Wrath", "0143125508")));
-            logger.info("Preloading " + bookRepository.save(new Book("Symposium", " 0872200760")));
+            logger.info("Preloading " + bookRepository.save(new Book("Symposium", "0872200760")));
             logger.info("Preloading " + bookRepository.save(new Book("Pride and Prejudice", "0486284735")));
             logger.info("Preloading " + bookRepository.save(new Book("The Great Gatsby", "9780141182636")));
 
